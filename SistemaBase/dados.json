@@ -2,9 +2,9 @@
     {
         "nome": "isaias",
         "moto": {
-            "modelo": "cg160",
-            "consumo_medio": 35,
-            "custo_manutencao": 0.17,
+            "modelo": "cb399",
+            "consumo_medio": 27,
+            "custo_manutencao": 0.15,
             "preco_gasolina": 6.0
         }
     }

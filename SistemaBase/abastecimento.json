@@ -7,5 +7,23 @@
             "valor_total": 20.0,
             "preco_litro": 6.0
         }
+    },
+    {
+        "data": "12/11/2025",
+        "abastecimento": {
+            "posto": "br",
+            "litros": 10.0,
+            "valor_total": 60.0,
+            "preco_litro": 6.0
+        }
+    },
+    {
+        "data": "12/11/2025",
+        "abastecimento": {
+            "posto": "ipiranga",
+            "litros": 10.0,
+            "valor_total": 63.0,
+            "preco_litro": 6.3
+        }
     }
 ]
