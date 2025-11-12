@@ -1,0 +1,11 @@
+[
+    {
+        "nome": "isaias",
+        "moto": {
+            "modelo": "cg160",
+            "consumo_medio": 35,
+            "custo_manutencao": 0.17,
+            "preco_gasolina": 6.0
+        }
+    }
+]
