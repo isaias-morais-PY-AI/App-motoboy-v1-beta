@@ -1,11 +1,11 @@
 [
     {
-        "nome": "Roberto\\",
+        "nome": "isaias",
         "moto": {
-            "modelo": "S1000",
-            "consumo_medio": 14.9,
-            "custo_manutencao": "0.50",
-            "preco_gasolina": 6.17
+            "modelo": "cg160",
+            "consumo_medio": 33.0,
+            "custo_manutencao": 0.2,
+            "preco_gasolina": 6.0
         }
     }
 ]

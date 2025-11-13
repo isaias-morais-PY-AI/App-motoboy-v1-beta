@@ -1,0 +1,15 @@
+[
+    {
+        "data": "13/11/2025",
+        "dia": {
+            "kmrodados": 12.0,
+            "horasrodadas": 1.0166666666666666,
+            "horasstr": "1:1",
+            "lucrobruto": 23.0,
+            "ganho_hora": 22.622950819672134,
+            "ganho_km": 1.9166666666666667,
+            "Custo_dia": 3.9818181818181815,
+            "lucroliquido": 19.01818181818182
+        }
+    }
+]

@@ -1,9 +1,9 @@
 [
     {
-        "data": "12/11/2025",
+        "data": "13/11/2025",
         "manutencao": {
-            "peca": "pneus",
-            "valor": 1.2
+            "peca": "pneu",
+            "valor": 200.0
         }
     }
 ]

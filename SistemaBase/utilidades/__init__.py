@@ -48,8 +48,9 @@ def calculoliquido (bruto,km, gasto = False):
 
     gasolina_km = dados[0]['moto']['preco_gasolina']/dados[0]['moto']['consumo_medio']
     manutencao_km = dados[0]['moto']['custo_manutencao']
-    custo_totalKM = (manutencao_km + gasolina_km) * km
+    custo_totalKM = float(manutencao_km + gasolina_km) * km
     liquido = bruto - custo_totalKM
+    custo_totalKM = float(custo_totalKM)
     if gasto == False:
         return liquido
     elif gasto == True:
@@ -99,11 +100,11 @@ def registrardia(data, arquivo='historico.json'):
         with open("historico.json", "w", encoding="utf-8") as f:
             json.dump(historico, f, ensure_ascii=False, indent=4)
             linha(45)
-            print(f'{"Bruto:":<10} {lucrobruto:>30.2f}')
-            print(f'{"Ganhos p/Hora:":<10} {ganho_hora:>30.2f}')
-            print(f'{"Ganhos p/Km:":<10} {ganho_km:>30.2f}')
-            print(f'{"Custo:":<10} {gastos_dia:>30.2f}')
-            print(f'{"Liquido:":<10} {totliquido:>30.2f}')
+            print(f'{"Bruto:":<15} {lucrobruto:>30.2f}')
+            print(f'{"Ganhos p/Hora:":<15} {ganho_hora:>30.2f}')
+            print(f'{"Ganhos p/Km:":<15} {ganho_km:>30.2f}')
+            print(f'{"Custo:":<15} {gastos_dia:>30.2f}')
+            print(f'{"Liquido:":<15} {totliquido:>30.2f}')
         linha(45)
         print('Dia cadastrado com Sucesso')
 
@@ -176,6 +177,8 @@ def manutençao(data,arquivo='manutencao.json'):
     print('Manutenção registrada com sucesso')
 
 
+
+
 def configuracao_moto(arquivo='dados.json'):
     while True:
 
@@ -195,13 +198,13 @@ def configuracao_moto(arquivo='dados.json'):
                 alteracao = str(input('Digite o novo modelo : '))
                 moto[0]['moto']['modelo'] = alteracao
             case 2:
-                alteracao = str(input('Digite o novo consumo : '))
+                alteracao = leiafloat('Digite o novo consumo : ')
                 moto[0]['moto']['consumo_medio'] = alteracao
             case 3 :
-                alteracao = str(input('Digite o novo custo manutenção : '))
+                alteracao = leiafloat('Digite o novo custo manutenção : ')
                 moto[0]['moto']['custo_manutencao'] = alteracao
             case 4 :
-                alteracao = str(input('Digite o novo preço de gasolina : '))
+                alteracao = leiafloat('Digite o novo preço de gasolina : ')
                 moto[0]['moto']['preco_gasolina'] = alteracao
             case 5 :
                 break

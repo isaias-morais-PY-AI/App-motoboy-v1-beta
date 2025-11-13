@@ -47,6 +47,7 @@ while True:
                         configuracao_moto()
                     case 2:
                         manutençao(calendario)
+                        break
                     case 3:
                         break
                     case _:
