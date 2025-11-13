@@ -6,9 +6,6 @@ from SistemaBase.cadastros import *
 
 
 def verificao_inicial():
-    '''
-    verifica e cria se for nessesario todos arquivos nessesarios para fucionamento do app
-    '''
     if not verificarDoc('dados.json'):
         criarDoc('dados')
 
@@ -22,15 +19,9 @@ def verificao_inicial():
         criarDoc('manutencao')
 
     if not verifiarq('dados.json'):
-        registra_usuario()
-
-def registra_usuario():
-    '''
-    :return: usuario no arquivo json
-    '''
         nome = str(input('Digite seu Nome: ')).strip()
         moto = str(input('Qual modelo da sua moto? : ')).strip()
-        consumo = leiaint('Quantos Km em media ela faz por litro? :')
+        consumo = leiafloat('Quantos Km em media ela faz por litro? :')
         gas = leiafloat('Qual preço da gasolina na sua regiao?: R$')
 
         while True:
@@ -51,13 +42,6 @@ def registra_usuario():
 
 
 def calculoliquido (bruto,km, gasto = False):
-    '''
-
-    :param bruto: valor bruto do dia
-    :param km: quantos km foram rodados
-    :param gasto: cauculo de manutençao por km e gasolina
-    :return: cauculo liquido e lucro por hora e registra no json
-    '''
 
     with open('dados.json','r',encoding='utf-8') as arquivo:
         dados = json.load(arquivo)
@@ -72,11 +56,6 @@ def calculoliquido (bruto,km, gasto = False):
         return custo_totalKM
 
 def registrardia(data, arquivo='historico.json'):
-    '''
-
-    :param data: data recebeida pelo calendario do app
-    :return: registro no arquivo json se nao houver dia cadastrado
-    '''
     strdata = str(data)
     cabecalho('REGISTRAR DIA', 45)
     if verificardia(data, 'historico.json'):
@@ -120,23 +99,17 @@ def registrardia(data, arquivo='historico.json'):
         with open("historico.json", "w", encoding="utf-8") as f:
             json.dump(historico, f, ensure_ascii=False, indent=4)
             linha(45)
-            print(f'{"Bruto:":<15} {lucrobruto:>30.2f}')
-            print(f'{"Ganhos p/Hora:":<15} {ganho_hora:>30.2f}')
-            print(f'{"Ganhos p/Km:":<15} {ganho_km:>30.2f}')
-            print(f'{"Custo:":<15} {gastos_dia:>30.2f}')
-            print(f'{"Liquido:":<15} {totliquido:>30.2f}')
+            print(f'{"Bruto:":<10} {lucrobruto:>30.2f}')
+            print(f'{"Ganhos p/Hora:":<10} {ganho_hora:>30.2f}')
+            print(f'{"Ganhos p/Km:":<10} {ganho_km:>30.2f}')
+            print(f'{"Custo:":<10} {gastos_dia:>30.2f}')
+            print(f'{"Liquido:":<10} {totliquido:>30.2f}')
         linha(45)
         print('Dia cadastrado com Sucesso')
 
 
 
 def registro_abastecimento_(data,arquivo="abastecimento.json"):
-    '''
-
-    :param data: recebe data do calendario
-    :param arquivo: registra no arquivo json
-    :return:
-    '''
     data_str =str(data)
     cabecalho('ABASTECIMENTO', 45)
 
@@ -177,11 +150,6 @@ def registro_abastecimento_(data,arquivo="abastecimento.json"):
 
 
 def manutençao(data,arquivo='manutencao.json'):
-    '''
-        :param data: recebe data do calendario
-        :param arquivo: registra no arquivo json
-        :return:
-        '''
     datastr = str(data)
 
     cabecalho('manutençao',45)
@@ -227,13 +195,13 @@ def configuracao_moto(arquivo='dados.json'):
                 alteracao = str(input('Digite o novo modelo : '))
                 moto[0]['moto']['modelo'] = alteracao
             case 2:
-                alteracao = leiafloat('Digite o novo consumo : ')
+                alteracao = str(input('Digite o novo consumo : '))
                 moto[0]['moto']['consumo_medio'] = alteracao
             case 3 :
-                alteracao = leiafloat('Digite o novo custo manutenção : ')
+                alteracao = str(input('Digite o novo custo manutenção : '))
                 moto[0]['moto']['custo_manutencao'] = alteracao
             case 4 :
-                alteracao = leiafloat('Digite o novo preço de gasolina : ')
+                alteracao = str(input('Digite o novo preço de gasolina : '))
                 moto[0]['moto']['preco_gasolina'] = alteracao
             case 5 :
                 break
